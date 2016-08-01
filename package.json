@@ -1,0 +1,17 @@
+{
+  "name": "chromecast-desktop",
+  "version": "1.0.0",
+  "description": "Electron UI to stream to chromecast",
+  "main": "index.js",
+  "author": "alseambusher",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-prebuilt": "latest",
+    "electron-debug": "latest", 
+    "remote": "latest",
+    "nedb": "latest",
+    "xmlhttprequest": "latest"
+  }
+}
