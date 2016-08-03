@@ -1,1 +1,3 @@
-electron-packager . chromecast-desktop --platform=all --arch=all
+rm -rf chromecast-desktop-*
+# add icon
+electron-packager . chromecast-desktop --platform=darwin --arch=all --icon "res/icon.icns"

@@ -1,8 +1,7 @@
 /*jshint esversion: 6 */
 const electron = require('electron');
 const app = electron.app;
-// var home = require("./js/home.js");
-//var reader = require('midi-reader');
+var home = require("./js/home.js");
 
 // adds debug features like hotkeys for triggering dev tools and reload
 require('electron-debug')();
