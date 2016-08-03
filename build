@@ -1,0 +1,1 @@
+electron-packager . chromecast-desktop --platform=all --arch=all

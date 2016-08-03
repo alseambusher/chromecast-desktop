@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const electron = require("electron");
 const ipc = electron.ipcMain;
 var reader = require("./midi-reader.js");
@@ -15,10 +16,15 @@ exports.interrupt = true;
 colors = ["red", "green", "blue", "yellow", "cyan"];
 bcolors = ['cyan', 'yellow', 'blue', 'green', 'red'];
 
-var white = {9: 0,11: 0,13: 0,14: 0,16: 0,20: 0,21: 1,23: 1,25: 1,26: 1,28: 1,32: 1,33: 2,35: 2,37: 2,38: 2,40: 2,44: 2,45: 3,47: 3,49: 3,50: 3,52: 3,56: 3,57: 4,59: 4,61: 4,62: 4,64: 4,68: 4}
-var black = {10: 0,12: 0,15: 0,17: 0,19: 0,22: 1,24: 1,27: 1,29: 1,31: 1,34: 2,36: 2,39: 2,41: 2,43: 2,46: 3,48: 3,51: 3,53: 3,55: 3,58: 4,60: 4,63: 4,65: 4,67: 4}
-
 exports.init = function() {
+	document.ondragover = document.ondrop = (ev) => {
+  ev.preventDefault()
+}
+
+document.body.ondrop = (ev) => {
+  console.log(ev.dataTransfer.files[0].path)
+  ev.preventDefault()
+}
 	reader.start(function(deltaTime, message) {
 		//console.log(message, deltaTime);
 		m = message.toString().split(",");
@@ -63,23 +69,23 @@ exports.init = function() {
 		led.strip.show();
 	});
 
-}
+};
 
 function midi_start_record(){
 	if (exports.interrupt) {
 		exports.song_out = exports.song.slice(0);
 		if (exports.song_out.length > 0){
-			var iv = new Buffer('asdfasdfasdfasdf')
-			var key = new Buffer('asdfasdfasdfasdfasdfasdfasdfasdf')
+			var iv = new Buffer('asdfasdfasdfasdf');
+			var key = new Buffer('asdfasdfasdfasdfasdfasdfasdfasdf');
    			xmlhttp = new XMLHttpRequest();
    			xmlhttp.open("POST","http://b-sharp.co/store", true);
    			xmlhttp.onreadystatechange=function(){
          			if (xmlhttp.readyState==4 && xmlhttp.status==200){
            				string=xmlhttp.responseText;
          			}
-   			}
+   			};
 			//cipher.update(new Buffer("test"));
-			var chunks = JSON.stringify(exports.song_out).match(/.{1,5}/g) 
+			var chunks = JSON.stringify(exports.song_out).match(/.{1,5}/g);
 			var chunks_enc = [];
 			for (var i=0; i<chunks.length; i++){
 				var cipher = crypto.createCipheriv('aes-256-cbc', key, iv);
