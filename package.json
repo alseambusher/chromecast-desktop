@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "electron-prebuilt": "latest",
-    "electron-debug": "latest", 
+    "electron-debug": "latest",
     "remote": "latest",
     "nedb": "latest",
-    "xmlhttprequest": "latest"
+    "xmlhttprequest": "latest",
+    "dialog": "latest"
   }
 }

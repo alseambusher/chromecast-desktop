@@ -5,58 +5,77 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="photon/css/photon.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
 
 </head>
 <body>
   <div class="window">
+    <header class="toolbar toolbar-header">
+      <div class="toolbar-actions">
+      <center>
+        <div class="btn-group pull-left">
+          <button class="btn btn-default">
+            <span class="icon icon-home"></span>
+          </button>
+          <button class="btn btn-default">
+            <span class="icon icon-folder"></span>
+          </button>
+          <button class="btn btn-default active">
+            <span class="icon icon-cloud"></span>
+          </button>
+          <button class="btn btn-default">
+            <span class="icon icon-popup"></span>
+          </button>
+          <button class="btn btn-default">
+            <span class="icon icon-shuffle"></span>
+          </button>
+        </div>
 
+        <button class="btn btn-large btn-default previous">RE</button>
+        <button class="btn btn-large btn-default previous">RE</button>
+        <button class="btn btn-large btn-default play">
+            <span class="icon icon-play"></span>
+        </button>
+        <button class="btn btn-large btn-default next">FF</button>
+        <button class="btn btn-large btn-default next">FF</button>
+
+        <button class="btn btn-default btn-dropdown pull-right">
+          <span class="icon icon-megaphone"></span>
+        </button>
+      </center>
+      </div>
+    </header>
     <div class="window-content">
+
       <div class="pane-group">
+
         <div class="pane pane-sm sidebar">
           <img src="icon.png" />
           <nav class="nav-group">
             <span class="nav-group-item active" id="nav-home" id="nav-home">
               <span class="icon icon-home"></span>
-              Home
+              Now Playing
             </span>
-            <span class="nav-group-item" id="nav-recommend">
+            <span class="nav-group-item" id="nav-playlists">
               <span class="icon icon-tools"></span>
-              Recommendations
+              Playlists
             </span>
           </nav>
         </div>
 
         <div class="pane" id="pane-home">
-          <select id="record-mode">
-            <option value="simple">Simple Mode</option>
-            <option value="learner">Learner Mode</option>
-            <option value="expert">Expert Mode</option>
-            <option value="record">Record Mode</option>
-          </select>
-          <button id="button-midi-start">Start</button>
-          <button id="button-midi-stop">Stop</button>
-          <button id="button-midi-clear">Clear</button>
-          <button id="button-midi-refresh">Refresh</button>
-          <select id="record-mode-speed">
-            <option value="1.0">1.0x</option>
-            <option value="1.5">1.5x</option>
-            <option value="2.0">2.0x</option>
-            <option value="0.5">0.5x</option>
-            <option value="0.2">0.2x</option>
-            <option value="0.1">0.1x</option>
-          </select>
           <table class="table-striped">
             <thead>
               <tr>
-                <th>Timestamp</th>
+                <th>File</th>
                 <th>Length</th>
+                <th>Location</th>
               </tr>
             </thead>
-            <tbody id="store">
+            <tbody id="home-table-items">
             </tbody>
           </table>
-
         </div>
 
         <div class="pane" id="pane-recommend" style="display:none">
@@ -71,9 +90,12 @@
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-  </div>
+
+      </div> <!-- pane-group -->
+    </div> <!-- window-content -->
+  </div><!-- window -->
+
 </body>
+<script src="js/view/songs.js" charset="utf-8"></script>
 <script src="js/view/menu.js" charset="utf-8"></script>
 </html>

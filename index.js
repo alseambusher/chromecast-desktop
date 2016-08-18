@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 const electron = require('electron');
 const app = electron.app;
-// var home = require("./js/home.js");
+var home = require("./js/home.js");
 //var reader = require('midi-reader');
 
 // adds debug features like hotkeys for triggering dev tools and reload
@@ -9,7 +9,7 @@ require('electron-debug')();
 
 let mainWindow;
 
-function onClosed() {
+function onClosed(){
 	// dereference the window
 	// for multiple windows store them in an array
 	mainWindow = null;
@@ -25,6 +25,6 @@ app.on('ready', () => {
 
 	mainWindow.loadURL(`file://${__dirname}/index.html`);
 	mainWindow.on('closed', onClosed);
-	mainWindow.openDevTools();
+	// mainWindow.openDevTools();
 	home.init();
 });
